@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Page</h1>
+    </header>
+    <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Students</a>
+        <a href="#">Courses</a>
+    </nav>
+    <main>
+        <section class="box-container">
+            <div class="box">
+                <h2>Add Students</h2>
+                <form>
+                    <label for="studentName">Student Name:</label><br>
+                    <input type="text" id="studentName" name="studentName" required><br>
+                    <label for="studentEmail">Student Email:</label><br>
+                    <input type="email" id="studentEmail" name="studentEmail" required><br>
+                    <label for="studentCode">Student Code:</label><br>
+                    <input type="text" id="studentCode" name="studentCode" pattern="[0-9]{3}-[0-9]{4}" required><br>
+                    <input type="submit" value="Add Student" >
+                </form>
+            </div>
+            <div class="box">
+                <h2>Remove Students</h2>
+                <button id="removeStudentsBtn" class="btn">Show List</button>
+                <ul id="removeStudentsList" style="display: none;">
+                    <li>Student 1: 211-3803</li>
+                    <li>Student 2: 320-9811</li>
+                    <li>Student 3: 114-7854</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h2>Add Courses</h2>
+                <form id="addCourseForm">
+                    <label for="courseName">Course Name:</label><br>
+                    <input type="text" id="courseName" name="courseName" required><br>
+                    <label for="courseAvailability">Course Availability:</label><br>
+                    <select id="courseAvailability" name="courseAvailability">
+                        <option value="available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                    </select><br><br>
+                    <input type="submit" value="Add Course" >
+                </form>
+            </div>
+            <div class="box">
+                <h2>Remove Courses</h2>
+                <button id="removeCoursesBtn" class="btn">Show List</button>
+                <ul id="removeCoursesList" style="display: none;">
+                    <li>Course 1</li>
+                    <li>Course 2</li>
+                    <li>Course 3</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="copyright">Your Company Name</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

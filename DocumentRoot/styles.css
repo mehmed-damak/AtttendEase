@@ -1,0 +1,73 @@
+/* Set font family for the entire document */
+body {
+    font-family: Arial, sans-serif;
+    /* Reset margin and padding to 0 */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the header section */
+header {
+    background-color: #333; /* Dark gray background color */
+    color: white; /* White text color */
+    text-align: center; /* Center-align text */
+    padding: 10px; /* Add 10px padding */
+}
+
+/* Style for the navigation section */
+nav {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Distribute space evenly between items */
+    background-color: #444; /* Slightly darker background color */
+    padding: 10px; /* Add 10px padding */
+}
+
+/* Style for anchor elements within the navigation */
+nav a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Style for active anchor element within navigation */
+nav a.active {
+    color: #333; /* Dark gray text color */
+}
+
+/* Style for the main section */
+main {
+    padding: 20px; /* Add 20px padding */
+}
+
+/* Style for the container of content boxes */
+.box-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
+    gap: 20px; /* Add 20px gap between items */
+}
+
+/* Style for individual content boxes */
+.box {
+    background-color: #f1f1f1; /* Light gray background color */
+    padding: 20px; /* Add 20px padding */
+    border-radius: 5px; /* Apply border-radius for rounded corners */
+}
+
+/* Style for heading 2 elements within content boxes */
+.box h2 {
+    margin-top: 0; /* Remove default top margin */
+}
+
+/* Style for buttons */
+.btn {
+    background-color: #333; /* Dark gray background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Apply border-radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Style for button on hover */
+.btn:hover {
+    background-color:#333; /* Slightly darker background color */
+}
