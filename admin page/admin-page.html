@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #D4F0FC;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #7cabe9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(65, 114, 179, 0.1);
+  margin: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: #4172B3;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #4172B3;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D4F0FC;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4172B3;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+}
+
+/* Adjust the form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adjust the form group layout */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Center the form submit button */
+div[style="text-align: center;"] {
+  text-align: center;
+}
+
+ </style>  
+</head>
+<body>
+    <header>
+        <!-- Main heading in the header section -->
+        <h1>Admin Page</h1>
+    </header>
+    <nav>
+        <!-- Hyperlink for Dashboard with "active" class indicating the current page -->
+        <a href="#" class="active">Dashboard</a>
+        <!-- Hyperlink for Students -->
+        <a href="#">Students</a>
+        <!-- Hyperlink for Courses -->
+        <a href="#">Courses</a>
+    </nav>
+    <main>
+        <!-- Section for grouping related content -->
+        <section class="box-container">
+            <div class="box">
+                <!-- Heading for the "Add Students" box -->
+                <h2>Add Students</h2>
+                <!-- Form for adding students -->
+                <form>
+                    <!-- Input field for student name -->
+                    <label for="studentName">Student Name:</label><br>
+                    <input type="text" id="studentName" name="studentName" required><br>
+                    <!-- Input field for student email -->
+                    <label for="studentEmail">Student Email:</label><br>
+                    <input type="email" id="studentEmail" name="studentEmail" required><br>
+                    <!-- Input field for student code with a pattern -->
+                    <label for="studentCode">Student Code:</label><br>
+                    <input type="text" id="studentCode" name="studentCode" pattern="[0-9]{3}-[0-9]{4}" required><br>
+                    <!-- Submit button for adding a student -->
+                    <input type="submit" value="Add Student">
+                </form>
+            </div>
+            <div class="box">
+                <!-- Heading for the "Remove Students" box -->
+                <h2>Remove Students</h2> 
+                <!-- Button to show the list of students to remove -->
+                <button id="removeStudentsBtn" class="btn">Show List</button>
+                <!-- List of students to remove (initially hidden) -->
+                <ul id="removeStudentsList" style="display: none;">
+                    <li>Student 1</li>
+                    <li>Student 2</li>
+                    <li>Student 3</li>
+                </ul>
+            </div>
+            <div class="box">
+                <!-- Heading for the "Add Courses" box -->
+                <h2>Add Courses</h2> 
+                <!-- Form for adding courses -->
+                <form id="addCourseForm">
+                    <!-- Input field for course name -->
+                    <label for="courseName">Course Name:</label><br>
+                    <input type="text" id="courseName" name="courseName" required><br>
+                    <!-- Dropdown for selecting course availability -->
+                    <label for="Period">Period:</label><br>
+                    <select id="Period" name="Period">
+                        <option value="Summer">Summer</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Fall">Fall</option>
+                    </select><br><br>
+                    <!-- Submit button for adding a course -->
+                    <input type="submit" value="Add Course">
+                </form>
+            </div>
+    
+            <div class="box">
+                <!-- Heading for the "Remove Courses" box -->
+                <h2>Remove Courses</h2>
+    
+                <!-- Button to show the list of courses to remove -->
+                <button id="removeCoursesBtn" class="btn">Show List</button>
+    
+                <!-- List of courses to remove (initially hidden) -->
+                <ul id="removeCoursesList" style="display: none;">
+                    <li>Course 1</li>
+                    <li>Course 2</li>
+                    <li>Course 3</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Copyright notice with a placeholder company name -->
+        <p class="copyright">AttendEase</p>
+    </footer>
+    
+    <!-- Linking an external JavaScript file for dynamic behavior -->
+    <script src="scripts.js"></script>
+    
+    </body>
+    </html>
