@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .navigation span {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #3498db;
+        }
+
+        .calendar-container {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Calendar</h1>
+    </div>
+    <div class="navigation">
+        <span onclick="previousMonth()">❮</span>
+        <span id="currentMonthYear"></span>
+        <span onclick="nextMonth()">❯</span>
+    </div>
+    <div class="calendar-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let currentYear = 2024;
+        let currentMonth = 2; // March is zero-based
+    
+        function redirectToProfessor(date) {
+            window.location.href = `professor-page.html?date=${date}`;
+        }
+    
+        function updateCalendar() {
+            const calendarBody = document.getElementById('calendar-body');
+            const currentMonthYear = document.getElementById('currentMonthYear');
+            currentMonthYear.textContent = `${new Date(currentYear, currentMonth).toLocaleString('en-US', { month: 'long' })} ${currentYear}`;
+            calendarBody.innerHTML = ''; // Clear previous content
+    
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    
+            let dayCounter = 1;
+    
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+    
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        // Empty cells before the first day
+                        cell.textContent = '';
+                    } else if (dayCounter <= daysInMonth) {
+                        const date = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(dayCounter).padStart(2, '0')}`;
+                        const link = document.createElement('a');
+                        link.textContent = dayCounter;
+                        link.href = '#'; // Remove this line if you want to prevent the issue
+                        link.onclick = function (event) {
+                            event.preventDefault(); // Prevent the default behavior of the anchor tag
+                            redirectToProfessor(date);
+                        };
+                        cell.appendChild(link);
+                        dayCounter++;
+                    }
+                    row.appendChild(cell);
+                }
+    
+                calendarBody.appendChild(row);
+    
+                if (dayCounter > daysInMonth) {
+                    break;
+                }
+            }
+        }
+    
+        function previousMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            updateCalendar();
+        }
+    
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            updateCalendar();
+        }
+    
+        // Initial display
+        updateCalendar();
+    </script>
+</body>
+</html>
+
+
+

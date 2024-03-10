@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="attendance-body">
+    <div class="header">
+        <h1>Attendance</h1>
+    </div>
+    <div id="students-container" class="moodle-attendance">
+        <div class="student">
+            <label class="student-name">Student 1</label>
+            <div class="attendance-options">
+                <label><input type="radio" name="student1" value="Present" checked> Present</label>
+                <label><input type="radio" name="student1" value="Absent"> Absent</label>
+            </div>
+        </div>
+        <div class="student">
+            <label class="student-name">Student 2</label>
+            <div class="attendance-options">
+                <label><input type="radio" name="student2" value="Present" checked> Present</label>
+                <label><input type="radio" name="student2" value="Absent"> Absent</label>
+            </div>
+        </div>
+        <div class="student">
+            <label class="student-name">Student 3</label>
+            <div class="attendance-options">
+                <label><input type="radio" name="student3" value="Present" checked> Present</label>
+                <label><input type="radio" name="student3" value="Absent"> Absent</label>
+            </div>
+        </div>
+        <div class="student">
+            <label class="student-name">Student 4</label>
+            <div class="attendance-options">
+                <label><input type="radio" name="student4" value="Present" checked> Present</label>
+                <label><input type="radio" name="student4" value="Absent"> Absent</label>
+            </div>
+        </div>
+        <div class="student">
+            <label class="student-name">Student 5</label>
+            <div class="attendance-options">
+                <label><input type="radio" name="student5" value="Present" checked> Present</label>
+                <label><input type="radio" name="student5" value="Absent"> Absent</label>
+            </div>
+        </div>
+    </div>
+
+    <form id="changeStatusForm">
+        <!-- No need for select elements, replaced with radio buttons -->
+    </form>
+</div>
+            
+<button type="button">Apply</button>
+</div>
+
+    <script>
+        // Function to change the attendance status of a student
+        function changeStudentStatus(studentId, status) {
+            // No need for this function, handled by radio buttons
+        }
+
+        // Add click event listener to a button to mark attendance
+        const markAttendanceButton = document.createElement('button');
+        markAttendanceButton.textContent = 'Mark Attendance';
+        markAttendanceButton.addEventListener('click', markAttendance);
+        document.body.appendChild(markAttendanceButton);
+    </script>
+
+    <style>
+        /* Updated styles for a better-looking attendance page */
+
+        .attendance-body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .moodle-attendance {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .student {
+            background-color: #fff;
+            color: #333;
+            padding: 15px;
+            margin: 10px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            text-align: center;
+            width: 150px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s, border-color 0.3s;
+        }
+
+        .student:hover {
+            background-color: #3498db;
+            color: #fff;
+            border-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .student-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .attendance-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .attendance-options label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .attendance-options input[type="radio"] {
+            cursor: pointer;
+        }
+        /* Style for the Apply button */
+button {
+    /* Blue background and white text */
+    background-color: #3498db;
+    color: #fff;
+    /* Padding and border radius for appearance */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    /* Set cursor to pointer on hover */
+    cursor: pointer;
+    /* Center the button and add transition effect on hover */
+    display: block;
+    margin: 50px auto;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the Apply button */
+button:hover {
+    background-color: #267bbf;
+}
+
+    </style>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, Professor</h1>
+    </div>
+    <div class="course-container">
+        <div class="course-box" data-course-id="123456">ECE251 - Electrical Circuits</div>
+        <div class="course-box" data-course-id="234567">ISS296 - Sophomore Project</div>
+        <div class="course-box" data-course-id="345678">CS261 - Computer Organization and Design</div>
+    </div>
+    <script>
+        // Function to navigate to the attendance page for the selected course
+        function viewAttendance(courseId) {
+            window.location.href = `attendance.html?courseId=${courseId}`;
+        }
+
+        // Add click event listeners to the course boxes
+        const courseBoxes = document.querySelectorAll('.course-box');
+        courseBoxes.forEach(courseBox => {
+            courseBox.addEventListener('click', () => {
+                const courseId = courseBox.dataset.courseId;
+                viewAttendance(courseId);
+            });
+        });
+    </script>
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #3498db;
+}
+
+h1 {
+  margin: 0;
+}
+
+.course-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.course-box {
+  background-color: #fff;
+  border: 2px solid ;
+  color: #3498db;
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid ;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, border-color 0.3s;
+}
+
+.course-box:hover {
+  background-color: #3498db;
+  color: #fff;
+  border-color: #3498db;
+  transform: scale(1.05);
+}
+</style>
+</body>
+</html>
